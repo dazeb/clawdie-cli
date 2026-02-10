@@ -1,59 +1,83 @@
-# Clawdie CLI
+# 🦾 Clawdie CLI
 
-Agent Infrastructure Orchestrator CLI for managing Clawdie agents.
+> **Agent Infrastructure Orchestrator** — Manage your autonomous agents with surgical precision.
 
-## Installation
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/dazeb/clawdie-cli)
+[![License](https://img.shields.io/badge/license-ISC-green.svg)](./LICENSE)
+
+Clawdie CLI is the command-line interface for the Clawdie platform, designed for hackers and developers who need high-throughput control over their agent clusters.
+
+---
+
+## 🚀 Quick Start
+
+### Installation
+
+Download the latest release from the [Releases](https://github.com/dazeb/clawdie-cli/releases) page or build from source:
 
 ```bash
+git clone https://github.com/dazeb/clawdie-cli.git
+cd clawdie-cli
 npm install
 npm run build
 ```
 
-## Usage
-
-### Authentication
-
+Link the binary globally (optional):
 ```bash
-clawdie login     # Authenticate with email/password
-clawdie logout    # Clear session
+npm link
 ```
 
-### Agent Management
+---
+
+## 🕹️ Usage
+
+### 🔐 Authentication
 
 ```bash
-clawdie agents              # List all agents
-clawdie status [id]         # View agent status and metrics
-clawdie restart <id>        # Restart an agent
-clawdie stop <id>           # Stop an agent
+clawdie login     # Authenticate with your Clawdie credentials
+clawdie logout    # Securely clear your session
 ```
 
-### Logs
+### 🧠 Agent Management
 
 ```bash
-clawdie logs <id>           # View agent logs
-clawdie logs <id> --follow  # Follow logs (poll every 3s)
+clawdie agents              # List all active agents in your fleet
+clawdie status [id]         # Deep-dive into agent health and metrics
+clawdie restart <id>        # Hot-reload an agent instance
+clawdie stop <id>           # Terminate an agent lifecycle
 ```
 
-### Deployment
+### 📜 Observability
 
 ```bash
-clawdie deploy              # Deploy a new agent (interactive checkout)
+clawdie logs <id>           # Dump recent agent logs
+clawdie logs <id> --follow  # Real-time log stream (3s polling)
 ```
 
-### Dashboard
+### 🏗️ Deployment
 
 ```bash
-clawdie nexus               # Launch the interactive Nexus dashboard
+clawdie deploy              # Interactive deployment wizard
 ```
 
-In the dashboard:
-- **TAB** — Switch between tabs (Agents, Telemetry, Logs)
-- **j** / **k** — Navigate agents (Telemetry tab)
-- **q** — Exit dashboard
+### 🛰️ Nexus Dashboard
 
-## Configuration
+Launch the high-fidelity TUI dashboard for real-time monitoring.
 
-Config is stored at `~/.clawdie/config.json`:
+```bash
+clawdie nexus
+```
+
+**Hotkeys:**
+- `TAB` — Cycle views (Agents, Telemetry, Logs)
+- `j` / `k` — Navigate selection
+- `q` — Exit Nexus
+
+---
+
+## ⚙️ Configuration
+
+Persistence is handled at `~/.clawdie/config.json`.
 
 ```json
 {
@@ -63,10 +87,18 @@ Config is stored at `~/.clawdie/config.json`:
 }
 ```
 
-## Environment Variables
+### Environment Overrides
 
-- `CLAWDIE_API_URL` — Override API URL (default: `https://api.clawdie.ai`)
+- `CLAWDIE_API_URL`: Direct the CLI to a custom Nexus endpoint.
 
-## Version
+---
 
-1.0.0
+## 🛡️ Security
+
+This CLI operates under the **Sentinel Protocol**. Session cookies are stored locally with user-level permissions. Always `logout` on shared machines.
+
+---
+
+## 📜 License
+
+ISC © [dazeb](https://github.com/dazeb)
